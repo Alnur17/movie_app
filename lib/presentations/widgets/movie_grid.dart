@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../models/movie_models.dart';
+import '../models/movie_model.dart';
 import '../screens/movie_details_screen.dart';
 import '../services/api_service.dart';
 
@@ -11,7 +11,7 @@ class MoviesGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future<List<Result>> selectedMoviesFuture;
+    Future<List<MovieModel>> selectedMoviesFuture;
     switch (selectedIndex) {
       case 0:
         selectedMoviesFuture = ApiService().fetchAllMovies();
@@ -26,7 +26,7 @@ class MoviesGrid extends StatelessWidget {
         selectedMoviesFuture = ApiService().fetchAllMovies();
     }
 
-    return FutureBuilder<List<Result>>(
+    return FutureBuilder<List<MovieModel>>(
       future: selectedMoviesFuture,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constants/app_colors.dart';
 import '../constants/app_text_style.dart';
-import '../models/movie_models.dart';
+import '../models/movie_model.dart';
 import '../services/api_service.dart';
 import 'movie_details_screen.dart';
 import 'dart:async';
@@ -16,7 +16,7 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController searchController = TextEditingController();
-  List<Result>? movieResults;
+  List<MovieModel>? movieResults;
   Timer? _debounce;
 
   void searchMovies(String query) async {

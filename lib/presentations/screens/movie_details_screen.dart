@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import '../constants/app_colors.dart';
 import '../constants/app_text_style.dart';
-import '../models/movie_models.dart';
+import '../models/movie_model.dart';
 import '../services/api_service.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
-  final Result movie;
+  final MovieModel movie;
 
   const MovieDetailsScreen({super.key, required this.movie});
 

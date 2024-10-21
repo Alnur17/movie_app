@@ -1,4 +1,6 @@
-class Result {
+import 'dart:developer';
+
+class MovieModel {
   final bool adult;
   final String backdropPath;
   final int id;
@@ -13,7 +15,7 @@ class Result {
   final double voteAverage;
   final int voteCount;
 
-  Result({
+  MovieModel({
     required this.adult,
     required this.backdropPath,
     required this.id,
@@ -29,8 +31,8 @@ class Result {
     required this.voteCount,
   });
 
-  factory Result.fromJson(Map<String, dynamic> json) {
-    return Result(
+  factory MovieModel.fromJson(Map<String, dynamic> json) {
+    return MovieModel(
       adult: json["adult"] ?? false,
       backdropPath: json["backdrop_path"] ?? '',
       id: json["id"] ?? 0,
@@ -54,7 +56,7 @@ class Result {
     try {
       return DateTime.parse(releaseDateStr);
     } catch (e) {
-      print('Error parsing date: $releaseDateStr - ${e.toString()}');
+      log('Error parsing date: $releaseDateStr - ${e.toString()}');
       return DateTime.now();
     }
   }

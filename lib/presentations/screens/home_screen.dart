@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import '../constants/app_colors.dart';
-import '../models/movie_models.dart';
+import '../models/movie_model.dart';
 import '../services/api_service.dart';
 import '../widgets/movie_grid.dart';
 import '../widgets/movie_carousel.dart';
@@ -16,9 +16,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late Future<List<Result>> trendingMoviesFuture;
-  late Future<List<Result>> popularMoviesFuture;
-  late Future<List<Result>> allMoviesFuture;
+  late Future<List<MovieModel>> trendingMoviesFuture;
+  late Future<List<MovieModel>> popularMoviesFuture;
+  late Future<List<MovieModel>> allMoviesFuture;
   int _selectedIndex = 0;
 
   @override
@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
         IconButton(
           icon: const Icon(Icons.search),
           onPressed: () {
-            Get.to(SearchScreen());
+            Get.to(const SearchScreen());
           },
         ),
       ],

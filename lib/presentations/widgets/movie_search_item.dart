@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constants/api_constants.dart';
 import '../constants/app_colors.dart';
-import '../models/movie_models.dart';
+import '../models/movie_model.dart';
 import '../screens/movie_details_screen.dart';
 
 class MovieSearchItem extends StatelessWidget {
-  final Result movie;
+  final MovieModel movie;
 
   const MovieSearchItem({super.key, required this.movie});
 
