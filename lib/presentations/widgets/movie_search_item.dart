@@ -8,7 +8,7 @@ import '../screens/movie_details_screen.dart';
 class MovieSearchItem extends StatelessWidget {
   final Result movie;
 
-  const MovieSearchItem({Key? key, required this.movie}) : super(key: key);
+  const MovieSearchItem({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {

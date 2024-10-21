@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
-import 'app_colors.dart';
 
 class TextStyles {
   static const TextStyle titleStyle = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.bold,
-    color: AppColors.whiteColor,
+    color: Colors.white,
   );
 
-  static const TextStyle searchHintStyle = TextStyle(
-    color: AppColors.greyColor,
-    fontSize: 18,
-  );
-
-  static const TextStyle bodyStyle = TextStyle(
-    color: AppColors.whiteColor,
+  static const TextStyle subtitleStyle = TextStyle(
     fontSize: 16,
+    color: Colors.white,
+  );
+
+  static const TextStyle overviewStyle = TextStyle(
+    fontSize: 16,
+    color: Colors.grey,
+  );
+
+  static const TextStyle ratingStyle = TextStyle(
+    fontSize: 16,
+    color: Colors.yellow,
+  );
+
+  static const TextStyle searchFieldStyle = TextStyle(
+
+    fontSize: 16,
+    color: Colors.white,
   );
 }

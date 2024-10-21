@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
 import '../models/movie_models.dart';
 import '../screens/movie_details_screen.dart';
 import '../services/api_service.dart';
 
-class MovieCarousel extends StatelessWidget {
+class MoviesGrid extends StatelessWidget {
   final int selectedIndex;
 
-  const MovieCarousel({super.key, required this.selectedIndex});
+  const MoviesGrid({super.key, required this.selectedIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +35,18 @@ class MovieCarousel extends StatelessWidget {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else if (snapshot.hasData) {
           final movies = snapshot.data!;
-          return CarouselSlider(
-            options: CarouselOptions(
-              height: 250,
-              autoPlay: true,
-              viewportFraction: 1.0,
-              enlargeCenterPage: false,
+          return GridView.builder(
+            primary: false,
+            shrinkWrap: true,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.7,
+              crossAxisSpacing: 8.0,
+              mainAxisSpacing: 8.0,
             ),
-            items: movies.map((movie) {
+            itemCount: movies.length,
+            itemBuilder: (context, index) {
+              final movie = movies[index];
               return GestureDetector(
                 onTap: () {
                   Get.to(MovieDetailsScreen(movie: movie));
@@ -51,13 +54,12 @@ class MovieCarousel extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16.0),
                   child: Image.network(
-                    ApiService().getImageUrl(movie.backdropPath),
-                    width: double.infinity,
+                    ApiService().getImageUrl(movie.posterPath),
                     fit: BoxFit.cover,
                   ),
                 ),
               );
-            }).toList(),
+            },
           );
         } else {
           return const Center(child: Text('No data available'));
